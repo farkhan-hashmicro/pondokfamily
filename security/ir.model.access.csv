@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pondokfamily_bahandasar,pondokfamily.bahandasar,model_pondokfamily_bahandasar,,1,1,1,1
+access_pondokfamily_restokbahan,pondokfamily.restokbahan,model_pondokfamily_restokbahan,,1,1,1,1
+access_pondokfamily_ordermenu,pondokfamily.ordermenu,model_pondokfamily_ordermenu,,1,1,1,1
+access_pondokfamily_orderlist,pondokfamily.orderlist,model_pondokfamily_orderlist,,1,1,1,1
+access_pondokfamily_menumakan,pondokfamily.menumakan,model_pondokfamily_menumakan,,1,1,1,1
+access_pondokfamily_resep,pondokfamily.resep,model_pondokfamily_resep,,1,1,1,1

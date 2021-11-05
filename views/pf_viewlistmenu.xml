@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- pondokfamily.menumakan tree view -->
+    <record id="pondokfamily_menumakan_view_tree" model="ir.ui.view">
+        <field name="name">pondokfamily.menumakan.view.tree</field>
+        <field name="model">pondokfamily.menumakan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="kode_menu"/>
+                <field name="name"/>
+                <field name="jenis_menu"/>
+                <field name="harga"/>
+                <field name="terjual"/>
+                <field name="star"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- pondokfamily.menumakan form view -->
+    <record id="pondokfamily_menumakan_view_form" model="ir.ui.view">
+        <field name="name">pondokfamily.menumakan.view.form</field>
+        <field name="model">pondokfamily.menumakan</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <group colspan='4'>
+                            <group colspan='2'>
+                                <separator string='Data Menu'/>
+                                <field name="kode_menu"/>
+                                <field name="name"/>
+                                <field name="jenis_menu"/>
+                                <field name="harga"/>
+                            </group>
+                            <group colspan='2'>
+                                <separator string='Keterangan Tambahan'/>
+                                <field name="terjual" readonly="1"/>
+                                <field name="star"/>
+                            </group>
+                            <notebook colspan='4'>
+                                <page string="Resep">
+                                    <!-- <field name="resep_ids" -->
+                                    <field name="resep_ids">
+                                        <tree editable="bottom">
+                                            <field name="bahan" />
+                                            <field name="satuan" />
+                                            <field name="qty" />
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- pondokfamily.menumakan action window -->
+    <record id="pondokfamily_menumakan_action" model="ir.actions.act_window">
+        <field name="name">pondokfamily.menumakan.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pondokfamily.menumakan</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+                Buat Menu Di Sini
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK --> 
+            </p>
+        </field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="pondokfamily_listmenu_menu_act"
+        name="Buat Menu" 
+        parent="pondokfamily_listmenu_menu_categ" 
+        action="pondokfamily_menumakan_action" 
+        sequence="5"/>
+
+</odoo>

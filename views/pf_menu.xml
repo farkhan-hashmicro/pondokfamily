@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="1">
+    
+        <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+        <menuitem id="pondokfamily_menu_root" name="Pondok Family" sequence="2"/>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem 
+            id="pondokfamily_bahandasar_menu_categ" 
+            name="Management Bahan" 
+            parent="pondokfamily_menu_root" 
+            sequence="5"/>
+
+        <menuitem 
+            id="pondokfamily_listmenu_menu_categ" 
+            name="Menu" 
+            parent="pondokfamily_menu_root" 
+            sequence="10"/>
+    
+    </data>
+    
+</odoo>

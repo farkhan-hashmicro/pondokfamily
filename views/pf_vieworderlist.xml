@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- pondokfamily.ordermenu tree view -->
+    <record id="pondokfamily_ordermenu_view_tree" model="ir.ui.view">
+        <field name="name">pondokfamily.ordermenu.view.tree</field>
+        <field name="model">pondokfamily.ordermenu</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="order_id" />
+                <field name="name" />
+                <field name="tipe_order" />
+                <field name="no_meja" />
+                <field name="status" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- pondokfamily.ordermenu form view -->
+    <record id="pondokfamily_ordermenu_view_form" model="ir.ui.view">
+        <field name="name">pondokfamily.ordermenu.view.form</field>
+        <field name="model">pondokfamily.ordermenu</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <group colspan='4'>
+                            <group colspan='3'>
+                                <separator string='Data Pesanan'/>
+                                <field name="name"/>
+                                <field name="tipe_order"/>
+                                <field name="hide" invisible='1' />
+                                <field name="no_meja" attrs="{'invisible':[('hide', '=', True)]}" />
+                                <field name="status" readonly='1' force_save='1'/>
+                                <field name="counter" readonly='1' force_save='1'/>
+                            </group>
+                            <group colspan='3'>
+                                <separator string='Nomor'/>
+                                <field name="order_id" readonly="1"/>
+                                <field name="tgl_beli" readonly="1"/>
+                            </group>
+                            <notebook colspan='4'>
+                                <page string="Order List">
+                                    <field name="orderlist">
+                                        <tree editable='bottom'>
+                                            <!-- <field name="name" /> -->
+                                            <field name="pesan" />
+                                            <field name="qty" />
+                                            <field name="desc" />
+                                            <field name="is_done" />
+                                            <field name="total" sum='Total Bill' />
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- pondokfamily.ordermenu action window -->
+    <record id="pondokfamily_ordermenu_action" model="ir.actions.act_window">
+        <field name="name">pondokfamily.ordermenu.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pondokfamily.ordermenu</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+                Isi Data Orderan Di sini
+            </p><p>
+                <!-- More details about what a user can do with this object will be OK --> 
+            </p>
+        </field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="pf_ordermenu_menu_act" 
+        name="Order Menu" 
+        parent="pondokfamily_listmenu_menu_categ" 
+        action="pondokfamily_ordermenu_action" 
+        sequence="10"/>
+
+</odoo>
